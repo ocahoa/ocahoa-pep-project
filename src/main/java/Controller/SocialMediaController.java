@@ -117,10 +117,6 @@ public class SocialMediaController {
         List<Message> msgs = messageService.getMessagesByUser(user);
         if(msgs!= null) ctx.json(messageService.getMessagesByUser(user));
     }
-
-
-
-
 }
 
 
