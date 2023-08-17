@@ -12,10 +12,6 @@ import DAO.MessageDAO;
 import java.util.*;
 
 
-
-
-
-
 /**
  * TODO: You will need to write your own endpoints and handlers for your controller. The endpoints you will need can be
  * found in readme.md as well as the test cases. You should
@@ -34,8 +30,6 @@ public class SocialMediaController {
      */
     public Javalin startAPI() {
         Javalin app = Javalin.create();
-
-
         app.post("/register", this::registerUserHandler);
         app.post("/login", this::loginUserHandler);
         app.post("/messages",this::createMessageHandler);
@@ -44,8 +38,6 @@ public class SocialMediaController {
         app.delete("/messages/{message_id}",this::deleteMessageByIDHandler);
         app.patch("/messages/{message_id}",this::updateMessageByIDHandler);
         app.get("/accounts/{account_id}/messages",this::getMessagesByUserHandler);
-
-
         return app;
     }
 
@@ -118,14 +110,12 @@ public class SocialMediaController {
         Message updatedM = messageService.updateMessageByID(id,message);
         if (updatedM != null) ctx.json(updatedM);
         else ctx.status(400);
-
     }
 
     private void getMessagesByUserHandler(Context ctx){
         int user = Integer.parseInt(ctx.pathParam("account_id"));
         List<Message> msgs = messageService.getMessagesByUser(user);
         if(msgs!= null) ctx.json(messageService.getMessagesByUser(user));
-
     }
 
 

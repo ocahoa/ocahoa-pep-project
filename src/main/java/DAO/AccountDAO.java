@@ -1,7 +1,5 @@
 package DAO;
 import Model.Account;
-
-
 import Util.ConnectionUtil;
 import java.sql.*;
 import java.util.ArrayList;
@@ -27,8 +25,6 @@ public class AccountDAO {
             System.out.println(e.getMessage());
         }
         return null;
-
-
     }
 
 
@@ -67,7 +63,6 @@ public class AccountDAO {
                 return new Account(rs.getInt("account_id"),rs.getString("username"),rs.getString("password"));
             }
 
-
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
@@ -81,8 +76,6 @@ public class AccountDAO {
             String sql = "Select account_id FROM Account WHERE account_id = ?;";  
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
-
-
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
                 Account account = new Account(rs.getInt("account_id"), rs.getString("username"),
@@ -94,6 +87,4 @@ public class AccountDAO {
         }
         return null;
     }
-
-
 }

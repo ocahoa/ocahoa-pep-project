@@ -4,12 +4,8 @@ import Model.Account;
 //import java.util.list;
 public class AccountService {
     AccountDAO accountDAO;
-
-
     public AccountService(){
         accountDAO = new AccountDAO();
-
-
     }
     public AccountService(AccountDAO accountDAO){
         this.accountDAO = accountDAO;
@@ -27,10 +23,5 @@ public class AccountService {
         else{
             return accountDAO.getAccount(account);
         }
-    }
-   
+    }  
 }
-
-
-
-
